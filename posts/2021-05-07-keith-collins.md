@@ -8,13 +8,13 @@ date: "2021-05-07"
 
 First, a little bit about me. I am a programmer, designer and data journalist at The New York Times. That means I write words as well as code, do traditional reporting and use many different tools to create news articles. On the tech side of my job, I often use some combination of Javascript, Node.js, D3.js, SVG, Canvas, WebGL and Adobe Illustrator.
 
-## To follow my latest work, see:
+**To follow my latest work, see:**
 
 ➡️ My author page at [The New York Times](https://www.nytimes.com/by/keith-collins)
 
 ➡️ My Twitter feed at [@collinskeith](https://twitter.com/collinskeith)
 
-## And here are some experimental and fun (if a bit outdated) projects I have done with code:
+**And here are some experimental and fun (if a bit outdated) projects I have done with code:**
 
 [@actual_ransom](https://twitter.com/actual_ransom) - A bot that watches the bitcoin wallets tied to the WannaCry ransomware attack. Code available [here](https://github.com/keithcollins/actual_ransom).
 
@@ -24,4 +24,4 @@ First, a little bit about me. I am a programmer, designer and data journalist at
 
 [pi-bots](https://github.com/keithcollins/pi-bots) - A simple system for running Twitter bots from your Raspberry Pi.
 
-## Below you will find lists of my previous work in journalism, as well as some earnest blog posts about video game development that I do not yet have the heart to delete.
+**Below you will find [lists of my previous work in journalism](/#2018-01-15-clips), as well as some old [blog posts about video game development](/#2016-08-29-what-im-building) that I do not yet have the heart to delete.**

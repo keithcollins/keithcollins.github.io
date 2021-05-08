@@ -17,11 +17,13 @@ and /blog/[slug].svelte.
 <svelte:head><title>Keith Collins, Visual Journalist</title></svelte:head>
 
 <div class='home-container'>
-	{#each posts as post}
+	{#each posts as post,i}
 		
-		<div class='post'>
+		<div class='post' id={post.slug}>
+			{#if i > 0}
+				<div class='date'>POSTED ON {post.date}</div>
+			{/if}
 			<h1>{post.title}</h1>
-			<div class='date'>POSTED ON {post.date}</div>
 			
 			<div class="content">
 				{@html post.html}
@@ -42,13 +44,12 @@ and /blog/[slug].svelte.
 	}
 	.home-container :global(h1) {
 		font-weight: bold;
-		margin-bottom: 10px;
 	}
 	.home-container :global(h1 > a) {
 		text-decoration: none;
 	}
 	.home-container :global(h2) {
-		font-size: 1.4em;
+		font-size: 22px;
 		color: #333;
     line-height: 1.3;
     letter-spacing: 0.2px;
@@ -58,14 +59,15 @@ and /blog/[slug].svelte.
     color: #333;
     line-height: 1.5;
 	}
-	.home-container :global(p > a) {
+	.home-container :global(a) {
 		color:#0275d8;
 	}
 
 	.home-container > .post > .date {
 		font-size:12px;
 		color:#999;
-		margin-bottom:10px;
+		/* font-weight:100; */
+		margin-bottom:5px;
 	}
 
 	.home-container > .post {

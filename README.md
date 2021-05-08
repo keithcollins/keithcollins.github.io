@@ -19,7 +19,4 @@ Mainly the markdown-based blog is setup to be the main and only page.
 Most relevant folders and files:
 
 src/routes/index.svelte
-src/routes/blog/_posts.js
-src/routes/blog/[slug].svelte (Individual blog posts)
-
-[Sapper issue tracker](https://github.com/sveltejs/sapper/issues).
+src/routes/_posts.js
