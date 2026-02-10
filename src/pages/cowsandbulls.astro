@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Game from '../components/cowsandbulls/Game.svelte';
+---
+
+<BaseLayout 
+  title="Cows & Bulls - Keith Collins"
+  description="A word guessing game. Can you figure out the four-letter word?"
+  gameSize={true}
+>
+  <Game client:only="svelte" />
+</BaseLayout>

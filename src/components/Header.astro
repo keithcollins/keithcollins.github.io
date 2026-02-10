@@ -1,0 +1,71 @@
+---
+const { pathname } = Astro.url;
+const title = 'Good Forms by Keith Collins';
+const showBreadcrumbs = !pathname.includes('cowsandbulls');
+const showH1 = !pathname.includes('cowsandbulls');
+
+const breadcrumbs = [{ name: 'home', url: '/' }];
+if (showBreadcrumbs && pathname !== '/') {
+  let url = '';
+  for (const name of pathname.split('/').filter(Boolean)) {
+    url += `/${name}`;
+    breadcrumbs.push({ name, url });
+  }
+}
+---
+
+{showH1 && (
+  <header>
+    <h1><a href="/">{title}</a></h1>
+  </header>
+)}
+
+{showBreadcrumbs && breadcrumbs.length > 1 && (
+  <nav class="breadcrumbs">
+    {breadcrumbs.map((crumb, i) => (
+      <>
+        {i > 0 && <span class="separator"> / </span>}
+        <a href={crumb.url}>{crumb.name}</a>
+      </>
+    ))}
+  </nav>
+)}
+
+<style>
+  header {
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-weight: bold;
+    margin: 20px 0 10px;
+  }
+
+  h1 a {
+    color: #333;
+    text-decoration: none;
+  }
+
+  h1 a:hover {
+    text-decoration: underline;
+  }
+
+  .breadcrumbs {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  .breadcrumbs a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+
+  .breadcrumbs a:hover {
+    text-decoration: underline;
+  }
+
+  .separator {
+    color: #999;
+  }
+</style>
