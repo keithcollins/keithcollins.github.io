@@ -155,13 +155,6 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"2026-02-08-good-forms.md": {
-	id: "2026-02-08-good-forms.md";
-  slug: "2026-02-08-good-forms";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".md"] };
 };
 
 	};
