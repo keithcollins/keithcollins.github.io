@@ -55,10 +55,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <strong>Automatic Crossfading</strong>: Applies smooth equal-power or linear crossfades between the joined audio segments to prevent clicks and pops. The crossfading can also be turned off, so that the kept regions are combined without overlaps.
     </li>
     <li>
-      <strong>Dynamic UI</strong>:
+      <strong>Visuals</strong>:
       <ul>
         <li>The top waveform display shows the original audio and highlights the detected silent regions.</li>
-        <li>A draggable line on the waveform display allows the user to intuitively set the silence threshold.</li>
         <li>The combined audio is displayed in the lower waveform..</li>
       </ul>
     </li>
@@ -251,6 +250,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   
   
   <h2>February 3: Interactive threshold control</h2>
+  
   <h3>Mouse interactions</h3>
   <p><strong>New capabilities:</strong></p>
   <ul>
@@ -267,20 +267,21 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       >isDragging</code
     >, <code>dragStartY</code>, etc.
   </p>
-  <h3>Hover &amp; cursor</h3>
-  <p>Refined the hover behavior.</p>
+
   <p><strong>Polish details:</strong></p>
   <ul>
     <li>Worked on hover state rendering in <code>mainGraphics.js</code></li>
     <li>TODO: Cursor changes to indicate draggability</li>
     <li>Smooth transitions between states</li>
   </ul>
+  
   <h3>Line dragging</h3>
   <p>Fine-tuned the drag interaction to make it feel natural.</p>
   <hr />
 
 
   <h2>January 29: Crossfade visualization</h2>
+  
   <h3>Merge points</h3>
   <p>Started visualizing where audio regions get joined together.</p>
   <p>
@@ -298,7 +299,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     helpful as I expected. Especially for longer audio, it really just adds noise
     to the output waveform. Will likely drop it.
   </p>
-  <p>Documenting the math behind equal-power crossfading:</p>
+  
+  <p><strong>The math behind constant/equal-power crossfading:</strong></p>
   <pre><code class="language-javascript">// Linear: 3dB dip in the middle
   outA = inA * (1 - position);
   outB = inB * position;
@@ -313,8 +315,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   </p>
   <h3>Threshold line interaction</h3>
   <p>
-    Made the threshold line interactive. You can now click and drag it up and
-    down to adjust the silence threshold in real-time.
+    Made the threshold line interactive. Now you can change the threshold via the button at the top,
+    or you can click and drag the threshold like up and
+    down to adjust the threshold.
   </p>
   <p><strong>Implementation details (<code>mainGraphics.js</code>):</strong></p>
   <ul>
@@ -332,25 +335,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   
   
   <h2>January 27: Polishing 💎</h2>
-  <h3>UI Updates (Jan 25, 14:36)</h3>
+  <h3>UI Updates</h3>
   <ul>
     <li>
-      Added crossfade type selector with custom icons: for equal power, linear
+      Added crossfade type selector with custom icons for equal power, linear
       fade and no fade.
     </li>
     <li>Updated color scheme based on Illustrator mockups</li>
   </ul>
   <p><code>state.js</code> grew to accommodate new UI parameters.</p>
-  <p>
-    <strong>Design detail:</strong> Exported <code>Granulator III.pdf</code> from
-    Max for reference. Studying how Ableton&#39;s flagship M4L devices handle UI helped
-    inform our design decisions.
-  </p>
+
   <h3>State simplification</h3>
   <p>
     Refactored <code>state.js</code> down from 222 lines to 97. Removed 125 lines
     of cruft that accumulated during development.
   </p>
+
   <h3>Bounce feature</h3>
   <p>
     Added audio export functionality. You can now render the smushed audio to a
@@ -363,11 +363,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <li>Progress feedback</li>
     <li>Error handling</li>
   </ul>
+
   <h3>Trimming fat</h3>
   <p>
     Huge simplification of <code>state.js</code>, and <code>index.js</code> got a
     165-line overhaul improving message handling and state synchronization.
   </p>
+
   <h3>Reset issues</h3>
   <p>
     It&#39;s important that the user can drop a new audio clip into the device
@@ -378,6 +380,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <strong>The problem:</strong> State wasn&#39;t fully clearing when it got new
     audio. Some UI elements remembered old values, waveforms showed ghost data, etc.
   </p>
+  
   <h3>Buffer stuff</h3>
   <p>Proper sequencing of buffer operations:</p>
   <ol>
@@ -388,6 +391,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <li>Notify graphics layers</li>
     <li>Resume transport if needed</li>
   </ol>
+  
   <h3>Floor UI</h3>
   <p>
     Added an experimental &quot;floor&quot; parameter that allows the user to
